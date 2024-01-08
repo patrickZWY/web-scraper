@@ -1,3 +1,4 @@
 toy/toy/__pycache__/
 toy/toy/spiders/__pycache__/
 __pycache__/
+*.csv
