@@ -21,9 +21,10 @@ class BFISpider(scrapy.Spider):
     }
 
     def parse(self, response):
-        for movie in response.css('body #root div.ResultsPage__PollPage-sc-of10co-18.eYhEFo main.Landmark-sc-1aeknwx-0.ResultsPage__ResultsMain-sc-of10co-4.iyyYYR.byorKl div.ResultsPage__ResultGrid-sc-of10co-0.jwsIcX article'):
-
-            year_line = movie.css('a .ResultsPage__P-sc-of10co-2.cPbLUx::text').get()
+        # for movie in response.css('body #root div.ResultsPage__PollPage-sc-of10co-18.eYhEFo main.Landmark-sc-1aeknwx-0.ResultsPage__ResultsMain-sc-of10co-4.iyyYYR.byorKl div.ResultsPage__ResultGrid-sc-of10co-0.jwsIcX article'):
+        for movie in response.css('body #root div.ResultsPage__PollPage-sc-of10co-18.dkRwLp main.Landmark-sc-1aeknwx-0.ResultsPage__ResultsMain-sc-of10co-4.fBSqqA.cCtwok div.ResultsPage__ResultGrid-sc-of10co-0.imFHde article'):
+            # year_line = movie.css('a .ResultsPage__P-sc-of10co-2.cPbLUx::text').get()
+            year_line = movie.css('a .ResultsPage__P-sc-of10co-2.eUEyPc::text').get()
             year = int(year_line.split()[0])
             if 1940 <= year <= 1949:
                 yield {
